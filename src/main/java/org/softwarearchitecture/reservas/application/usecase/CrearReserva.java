@@ -22,8 +22,8 @@ public class CrearReserva {
     }
 
     public Reserva ejecutarReserva (Long idUsuario, Long idEspacio, LocalDateTime fechaHora) {
-        Usuario usuario = usuarioRepository.buscarById(idUsuario).orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado")) ;
-        Espacio espacio = espacioRepository.buscarById(idEspacio).orElseThrow(() -> new IllegalArgumentException("Espacio no encontrado"));
+        Usuario usuario = usuarioRepository.buscarPorId(idUsuario).orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado")) ;
+        Espacio espacio = espacioRepository.buscarPorId(idEspacio).orElseThrow(() -> new IllegalArgumentException("Espacio no encontrado"));
 
         Reserva newReserva = new Reserva(null, usuario, espacio, fechaHora, true);
         return reservaRepository.guardar(newReserva);

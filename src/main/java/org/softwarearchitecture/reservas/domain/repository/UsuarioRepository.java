@@ -5,6 +5,6 @@ import org.softwarearchitecture.reservas.domain.model.Usuario;
 import java.util.Optional;
 
 public interface UsuarioRepository {
-    Optional<Usuario> buscarById(Long id);
+    Optional<Usuario> buscarPorId(Long id);
     Usuario guardar(Usuario usuario);
 }

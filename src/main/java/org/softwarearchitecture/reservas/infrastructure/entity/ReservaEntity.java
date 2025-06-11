@@ -35,5 +35,5 @@ public class ReservaEntity {
 
     @Getter
     @Setter
-    private LocalDateTime fecha_hora;
+    private LocalDateTime fechaHora;
 }

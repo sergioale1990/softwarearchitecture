@@ -6,14 +6,14 @@ public class Reserva {
     private Long id;
     private Usuario usuario;
     private Espacio espacio;
-    private LocalDateTime fecha_hora;
+    private LocalDateTime fechaHora;
     private boolean estado;
 
-    public Reserva(Long id, Usuario usuario, Espacio espacio, LocalDateTime fecha_hora, boolean estado) {
+    public Reserva(Long id, Usuario usuario, Espacio espacio, LocalDateTime fechaHora, boolean estado) {
         this.id = id;
         this.usuario = usuario;
         this.espacio = espacio;
-        this.fecha_hora = fecha_hora;
+        this.fechaHora = fechaHora;
         this.estado = estado;
     }
 
@@ -29,8 +29,8 @@ public class Reserva {
     public Espacio getEspacio() {
         return espacio;
     }
-    public LocalDateTime getFecha_hora() {
-        return fecha_hora;
+    public LocalDateTime getFechaHora() {
+        return fechaHora;
     }
     public boolean isEstado() {
         return estado;

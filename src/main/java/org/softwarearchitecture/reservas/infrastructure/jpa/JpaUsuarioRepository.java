@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public abstract class JpaUsuarioRepository implements UsuarioRepository {
+public class JpaUsuarioRepository implements UsuarioRepository {
 
     private final SpringDataUsuarioRepository springDataUsuarioRepository;
 
@@ -26,7 +26,7 @@ public abstract class JpaUsuarioRepository implements UsuarioRepository {
         UsuarioEntity usuarioEntity = new UsuarioEntity();
         usuarioEntity.setId(usuario.getId());
         usuarioEntity.setNombre(usuario.getNombre());
-        usuarioEntity.setEmail(usuarioEntity.getEmail());
+        usuarioEntity.setEmail(usuario.getEmail());
 
         UsuarioEntity savedEntity = springDataUsuarioRepository.save(usuarioEntity);
         return toDomain(savedEntity);

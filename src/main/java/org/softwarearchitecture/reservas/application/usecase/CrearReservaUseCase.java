@@ -9,13 +9,13 @@ import org.softwarearchitecture.reservas.domain.repository.UsuarioRepository;
 
 import java.time.LocalDateTime;
 
-public class CrearReserva {
+public class CrearReservaUseCase {
 
     private final ReservaRepository reservaRepository;
     private final UsuarioRepository usuarioRepository;
     private final EspacioRepository espacioRepository;
 
-    public CrearReserva(ReservaRepository reservaRepository, UsuarioRepository usuarioRepository, EspacioRepository espacioRepository) {
+    public CrearReservaUseCase(ReservaRepository reservaRepository, UsuarioRepository usuarioRepository, EspacioRepository espacioRepository) {
         this.reservaRepository = reservaRepository;
         this.usuarioRepository = usuarioRepository;
         this.espacioRepository = espacioRepository;

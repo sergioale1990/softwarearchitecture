@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface EspacioRepository {
     Optional<Espacio> buscarPorId(Long id);
     List<Espacio> buscarTodos();
+    Espacio guardar(Espacio espacio);
 }

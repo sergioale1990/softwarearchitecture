@@ -7,5 +7,5 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface SpringDataReservaRepository extends JpaRepository<ReservaEntity, Long> {
-    List<ReservaEntity> buscarEspacioPorFecha(Long id, LocalDateTime fecha);
+    List<ReservaEntity> findByEspacioIdAndFechaHora(Long id, LocalDateTime fechaHora);
 }

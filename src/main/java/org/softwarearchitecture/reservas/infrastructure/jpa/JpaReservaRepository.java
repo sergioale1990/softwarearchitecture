@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
-public abstract class JpaReservaRepository implements ReservaRepository {
+public class JpaReservaRepository implements ReservaRepository {
 
     private final SpringDataReservaRepository springDataReservaRepository;
 
@@ -37,7 +37,7 @@ public abstract class JpaReservaRepository implements ReservaRepository {
 
     @Override
     public List<Reserva> buscarPorFecha(Long espacioId, LocalDateTime fechaHora) {
-        return springDataReservaRepository.buscarEspacioPorFecha(espacioId, fechaHora)
+        return springDataReservaRepository.findByEspacioIdAndFechaHora(espacioId, fechaHora)
                 .stream()
                 .map(this::toDomain)
                 .collect(Collectors.toList());
@@ -54,7 +54,7 @@ public abstract class JpaReservaRepository implements ReservaRepository {
         reservaEntity.setId(reserva.getId());
         reservaEntity.setUsuario(usuarioEntity);
         reservaEntity.setEspacio(espacioEntity);
-        reservaEntity.setFecha_hora(reserva.getFecha_hora());
+        reservaEntity.setFechaHora(reserva.getFechaHora());
         reservaEntity.setEstado(reserva.isEstado());
 
         return reservaEntity;
@@ -63,6 +63,6 @@ public abstract class JpaReservaRepository implements ReservaRepository {
     private Reserva toDomain(ReservaEntity reservaEntity) {
         Usuario usuario = new Usuario(reservaEntity.getUsuario().getId(), reservaEntity.getUsuario().getNombre(), reservaEntity.getUsuario().getEmail());
         Espacio espacio = new Espacio(reservaEntity.getEspacio().getId(), reservaEntity.getEspacio().getNombre());
-        return new Reserva(reservaEntity.getId(), usuario, espacio, reservaEntity.getFecha_hora(), reservaEntity.isEstado());
+        return new Reserva(reservaEntity.getId(), usuario, espacio, reservaEntity.getFechaHora(), reservaEntity.isEstado());
     }
 }

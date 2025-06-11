@@ -13,13 +13,14 @@ public class CancelarReservaUseCase {
         this.reservaRepository = reservaRepository;
     }
 
-    public void ejecutarCancelarReserva(Long id) {
-        Optional<Reserva> reserva = reservaRepository.buscarById(id);
-        if (reserva.isPresent()) {
-            reserva.get().cancelarReserva();
-            reservaRepository.guardar(reserva.get());
-        } else {
-            throw new IllegalArgumentException("Reserva no encontrada");
+    public void ejecutarCancelarReserva(Long idReserva) {
+        Reserva reserva = reservaRepository.buscarPorId(idReserva)
+                .orElseThrow(() -> new IllegalArgumentException("Reserva no encontrada"));
+        if (!reserva.isEstado()) {
+            throw new IllegalStateException("Reserva ya cancelada");
         }
+
+        reserva.cancelarReserva();
+        reservaRepository.guardar(reserva);
     }
 }

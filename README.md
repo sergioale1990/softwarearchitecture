@@ -45,7 +45,7 @@ La arquitectura que se siguio para la implementacion de este proyecto es la arqu
 ### Compilar y correr
 
 - Ejecutar en la consola el comando ./gradlew bootRun
-- Ejecutar el comando ./gradlew test para ejecutar 
+- Ejecutar el comando ./gradlew test para ejecutar los test implementados
 
 ### Ingreso para probar API
 
